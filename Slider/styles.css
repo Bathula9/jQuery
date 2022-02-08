@@ -1,0 +1,42 @@
+.conteneur {
+  width: 1000px;
+  margin: 0 auto;
+  font-family: calibri;
+  border: 1px solid #dedede;
+  padding: 20px;
+}
+h1 {
+  background-color: darkslateblue;
+  color: white;
+  padding: 20px;
+}
+img {
+  max-width: 100%;
+  width: 98%;
+  margin: 1%;
+}
+.controls {
+  display: flex;
+  justify-content: space-between;
+  margin: 0;
+  padding: 0;
+  margin-bottom: 30px;
+}
+.controls li {
+  padding: 10px 25px;
+  background-color: darkslateblue;
+  color: white;
+  list-style-type: none;
+  cursor: pointer;
+}
+.monSlider {
+  position: relative;
+}
+.monSlider div {
+  overflow: hidden;
+  max-height: 170px;
+}
+.slick-dots {
+  top: -30px;
+  color: black;
+}
