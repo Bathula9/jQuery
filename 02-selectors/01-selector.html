@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Selecteur</title>
+    <script src=" https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  </head>
+  <body>
+    <h1>
+      Comment selectionner des éléments de la page web (dom) pour effectuer des
+      traitements ?
+    </h1>
+
+    <div class="avion">Avion1</div>
+    <div class="avion">Avion2</div>
+    <div class="avion">Avion3</div>
+
+    <div class="voiture">Voiture1</div>
+    <div class="voiture">Voiture2</div>
+    <div class="voiture">Voiture3</div>
+
+    <table border="1">
+      <tr>
+        <td>TD #0</td>
+        <td>TD #1</td>
+        <td>TD #2</td>
+      </tr>
+      <tr>
+        <td>TD #3</td>
+        <td>TD #4</td>
+        <td>TD #5</td>
+      </tr>
+      <tr>
+        <td>TD #6</td>
+        <td>TD #7</td>
+        <td>TD #8</td>
+      </tr>
+    </table>
+
+    <p>paragraphe 1</p>
+    <p>paragraphe 2</p>
+    <p>paragraphe 3</p>
+    <p>paragraphe 4</p>
+    <p>paragraphe 5</p>
+
+    <section id="masection">Section</section>
+
+    <article>article</article>
+
+    <aside>aside</aside>
+
+    <span>span</span>
+
+    <div id="resultat">resultat...</div>
+    <script>
+      /* 
+      Comment selectionner des elements de la page web (DOM) pour effectuer des traitements ?
+    */
+
+      // ----------- SELECTION BALISE
+
+      let maBalise = $("span"); // je selectionne l'élement span et le garde en memoire dans la variable nommée "maBalise"
+
+      $(maBalise).css("color", "purple"); // je change la propriété css color de maBalise donc de mon element span.
+
+      // ----------- SELECTION ID
+
+      let monID = $("#masection"); // je selectionne l'élement #masection et le garde en memoire dans la variable monID.
+
+      $(monID).css("color", "red"); // je change la propriété css color de monID donc de mon element #masection.
+
+      // ----------- SELECTION CLASS
+
+      let maClasse = $(".voiture"); // je selectionne les élements nommés 'voiture' et le garde en memoire dans la variable maClasse.
+
+      $(maClasse).css("color", "blue"); // je change la propriété css color de maClasse donc mes éléments voiture.
+
+      $(".voiture:first").css("color", "green"); // je change la propriété css de mon premier element voiture.
+
+      // $('.voiture:nth(1)').css('color','pink');
+      $(".voiture").eq(1).css("color", "pink");
+
+      // ----------- SELECTION MULTIPLE
+
+      let mesElements = $("h1, article, aside"); // Je selectionne différents éléments : h1, article, aside.
+
+      $(mesElements).css("color", "orange"); // je modifie la couleur css de mes elements : h1, article, aside.
+
+      // ----------- RESUME DES PRINCIPAUX SELECTEURS
+
+      /* 
+      selection de balise : $('span')
+      selection d'un #id : $('#id')
+      selection d'une class .class : $('.classe')
+      selection d'un element par lui-même : $(this)
+      selection d'un element par sabalise et son type : $('input:text')
+      selection d'un element par son attribut : $('img[alt]')
+      selection plusieurs selecteurs en meme temps :  $("h1, p, #id")
+    */
+    </script>
+  </body>
+</html>
