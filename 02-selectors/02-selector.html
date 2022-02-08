@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src=" https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <title>Selecteur javascript</title>
+    <style>
+      * {
+        transition: all 1s;
+      }
+    </style>
+  </head>
+  <body>
+    <section id="maSection"><h1>Lorem ipsum</h1></section>
+
+    <hr />
+
+    <div class="mesDivs" style="font-size: 35px">1</div>
+    <div class="mesDivs">2</div>
+    <div class="mesDivs">3</div>
+    <div class="mesDivs">4</div>
+
+    <hr />
+
+    <p>Hello <span>World</span></p>
+    <p>Bonjour</p>
+    <p>Hola</p>
+    <p>Ciao</p>
+
+    <hr />
+
+    <span>Lorem</span>
+
+    <div id="resultat">Pour voir les éléments : ouvrir la console.</div>
+
+    <script type="text/javascript">
+      $(document).ready(function () {
+        // Quand le document (la page) est entièrement chargée.
+
+        let monElementMaSection = $("#maSection");
+
+        // console.log(monElementMaSection.textContent);
+        console.log(monElementMaSection.text());
+
+        // monElementMaSection.innerHTML = "<h2>Bonjour à tous </h2>":
+        monElementMaSection.html("<h2>Bonjour à tous</h2>");
+
+        // --------------  SELECTION PAR LA CLASSE
+
+        $(".mesDivs").css("padding", "20px");
+
+        $(".mesDivs").css({
+          "background-color": "red",
+          "margin-top": "20px",
+          color: "white",
+        });
+      });
+    </script>
+  </body>
+</html>
