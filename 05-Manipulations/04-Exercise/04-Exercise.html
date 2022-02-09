@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DOM</title>
+    <meta charset="utf-8" />
+    <style></style>
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+  </head>
+  <body>
+    <p>Affichage successif des images toutes les 2 secondes</p>
+    <img
+      src="3.jpg"
+      title="mon image"
+      alt="mon image"
+      class="zone1"
+      width="500"
+    />
+    <script>
+      setInterval(function () {
+        $(".zone1").fadeToggle();
+      }, 2000);
+    </script>
+  </body>
+</html>

@@ -268,6 +268,36 @@
         $(this).css("background", "HotPink");
         $("#info").text("Je suis sur la zone 12 !");
       });
+
+      //SCROLL
+      //console.log(this);
+      // $(window).scroll(function () {
+      //   $("#info").css("background", "LightGreen");
+      //   $("#info").text("Je scroll!");
+      // });
+      console.log($(window).height());
+      console.log($(window).scrollTop());
+      //scroll down
+
+      // $(window).scroll(function () {
+      //   if ($(this).scrollTop() > $(this).height()) {
+      //     $("#info").css("background", "green");
+      //   } else {
+      //     $("#info").css("background", "red");
+      //   }
+      // });
+      let scrollTop = 0;
+      $(window).on("scroll", function () {
+        let currentScrollTop = $(this).scrollTop();
+        if (currentScrollTop > scrollTop) {
+          $("#info").css({ background: "lightGreen" });
+        } else {
+          $("#info").css({ background: "#454545" });
+        }
+        $("#info").text("je scrolle");
+        console.log(currentScrollTop);
+        scrollTop = currentScrollTop;
+      });
     </script>
   </body>
 </html>
