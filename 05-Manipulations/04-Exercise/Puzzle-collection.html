@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DOM</title>
+    <meta charset="utf-8" />
+    <style></style>
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+  </head>
+  <body>
+    <p>Affichage successif des images</p>
+    <img
+      src="1.jpg"
+      title="mon image"
+      alt="mon image"
+      class="zone1"
+      width="500"
+    />
+    <script>
+      $(document).ready(function () {
+        var i = 1;
+        function changementImage() {
+          i += 1; // on ajoute 1 a i.
+          $(".zone1").attr("src", i + ".jpg");
+          console.info(i + ".jpg");
+          if (i === 10) {
+            i = 0; // on repart a 0.
+            changementImage(); // on reexécute notre fonction
+          }
+          // if(i === 10) clearInterval(timer); // on arrete le carousel.
+        }
+        var timer = setInterval(changementImage, 2000); // on appelle la fonction changementImage() toutes les 2 secondes
+      });
+    </script>
+  </body>
+</html>
