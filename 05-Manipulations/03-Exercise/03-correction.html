@@ -40,6 +40,16 @@
         <img src="10.jpg" title="mon image 10" alt="mon image" width="120" />
       </div>
     </div>
-    <script src="script.js"></script>
+    <script>
+      $(document).ready(function () {
+        $(".droite img").on("click", function () {
+          var MonImage = $(this).attr("src"); // recuperation
+          var MonTitle = $(this).attr("title"); // recuperation
+          // console.info(MonImage);
+          $(".gauche img").attr("src", MonImage); // changement
+          $(".gauche img").attr("title", MonTitle); // changement
+        });
+      });
+    </script>
   </body>
 </html>
