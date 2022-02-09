@@ -1,0 +1,273 @@
+<html>
+  <head>
+    <title>Evenements</title>
+    <meta charset="utf-8" />
+    <script src="https://code.jquery.com/jquery-3.5.0.min.js"></script>
+    <style>
+      body {
+        margin: 0;
+        font-family: verdana;
+      }
+      fieldset {
+        margin: 30px 0;
+      }
+      #info {
+        position: fixed;
+        background: #454545;
+        color: #fff;
+        top: 0;
+        width: 100%;
+        display: block;
+        padding: 5px;
+        margin-bottom: 30px;
+      }
+      .titre {
+        font-weight: bold;
+        padding: 10px;
+        margin: 10px;
+      }
+      .zone1,
+      .zone2,
+      .zone3,
+      .zone4,
+      .zone5,
+      .zone6,
+      .zone7,
+      .zone8,
+      .zone9,
+      .zone10,
+      .zone11,
+      .zone12,
+      .zone13,
+      .zone14,
+      .zone15 {
+        background: LightSkyBlue;
+        padding: 20px;
+        margin: 20px;
+      }
+      input,
+      textarea,
+      select {
+        width: 100%;
+        padding: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="info">je ne fais rien...</div>
+
+    <br /><br />
+    <fieldset>
+      <p class="titre">1 / MOUSEOVER - SURVOLER LA ZONE1</p>
+      <div class="zone1">zone1</div>
+    </fieldset>
+
+    <fieldset>
+      <p class="titre">2 / MOUSEMOVE - BOUGER SUR LA ZONE2</p>
+      <div class="zone2">zone2</div>
+    </fieldset>
+
+    <fieldset>
+      <p class="titre">
+        3 / MOUSEOUT - QUITTER LE SURVOL DE LA ZONE APRES AVOIR SURVOLER LA
+        ZONE3
+      </p>
+      <div class="zone3">zone3</div>
+    </fieldset>
+
+    <fieldset>
+      <p class="titre">
+        4 / MOUSEENTER + MOUSELEAVE - ENTRER ET SORTIR DE LA ZONE4
+      </p>
+      <div class="zone4">zone4</div>
+    </fieldset>
+
+    <fieldset>
+      <p class="titre">
+        5 / MOUSEUP - PRESSEZ PENDANT QUELQUES SECONDES LE CLIC GAUCHE SUR LA
+        ZONE5 ET LE RELACHER SUR LA ZONE5
+      </p>
+      <div class="zone5">zone5</div>
+    </fieldset>
+
+    <fieldset>
+      <p class="titre">6 / MOUSEDOWN - ENFONCEZ LE CLIC SUR LA ZONE6</p>
+      <div class="zone6">zone6</div>
+    </fieldset>
+
+    <fieldset>
+      <p class="titre">7 / CLICK - CLIQUER SUR LA ZONE7</p>
+      <div class="zone7">zone7</div>
+    </fieldset>
+
+    <fieldset>
+      <p class="titre">8 / DBLCLICK - DOUBLECLIQUER SUR LA ZONE8</p>
+      <div class="zone8">zone8</div>
+    </fieldset>
+
+    <fieldset>
+      <p class="titre">9 / CONTEXTMENU - CLIC DROIT SUR LA ZONE9</p>
+      <div class="zone9">zone9</div>
+    </fieldset>
+
+    <form method="post">
+      <fieldset>
+        <p class="titre">
+          10 / BLUR - CLIQUER AILLEURS APRES AVOIR CLIQUER SUR CET ELEMENT (zone
+          10)
+        </p>
+        <input
+          type="text"
+          name="prenom"
+          placeholder="prenom - zone10"
+          class="zone10"
+        /><br />
+      </fieldset>
+
+      <fieldset>
+        <p class="titre">
+          11 / CHANGE - SELECTIONNER UNE AUTRE OPTION (zone11)
+        </p>
+        <select name="pays" class="zone11">
+          <option disabled selected>
+            zone 11 (change) Choisir une option différente
+          </option>
+          <option>France</option>
+          <option>Italie</option>
+          <option>Espagne</option></select
+        ><br />
+      </fieldset>
+
+      <fieldset>
+        <p class="titre">
+          12 / KEYDOWN+KEYUP - APPUYEZ ET RELACHER UNE TOUCHE DU CLAVIER (zone
+          12)
+        </p>
+        <textarea
+          name="commentaire"
+          placeholder="commentaire"
+          class="zone12"
+        ></textarea
+        ><br />
+      </fieldset>
+    </form>
+
+    <script>
+      // ----------- EVENEMENT CONCERNANT LE DEPLACEMENT DE LA SOURIS
+
+      // ----------- EVENEMENT MOUSEOVER
+      // Lorsque nous aloons passer notre souris (mouseover) sur les éléments ayant la classe "zone1", nous changerons leur background en rouge.
+
+      $(".zone1").on("mouseover", function () {
+        $(this).css("background", "IndianRed");
+        $("#info").text("Je suis sur la zone 1 !");
+      });
+
+      // ----------- EVENEMENT MOUSEMOVE
+      // Lorsque nous allons Bouger sur élements ayant la classe zone2, nous changerons leur contenu avec la position de notre curseur dans la zone.
+
+      $(".zone2").on("mousemove", function (event) {
+        // event est objet, nous pouvons inspecter ces proprétés et méthodes dans la console.
+        $(".zone2").text("pageX: " + event.pageX + ", pageY: " + event.pageY);
+        $("#info").text("Je suis sur la zone 2 !");
+      });
+
+      // ----------- EVENEMENT MOUSEOUT
+      // Lorsque nous allons quitter la zone apres avoir survoler un element, nous changerons leur background en rouge
+
+      $(".zone3").on("mouseout", function () {
+        $(this).css("background", "IndianRed");
+        $("#info").text("Je suis sur la zone 3 !");
+      });
+
+      // ----------- EVENEMENT MOUSEENTER + MOUSELEAVE
+      // Lorsque nous allons ENTRER et SORTIR LA ZONE AYANT LA CLASSE "zone4", nous changerons leur background en rouge et khaki.
+
+      $(".zone4").on("mouseenter", function () {
+        $(this).css("background", "IndianRed");
+        $("#info").text("Je suis sur la zone 4 !");
+      });
+
+      $(".zone4").on("mouseleave", function () {
+        $(this).css("background", "Khaki");
+        $("#info").text("Je suis sur la zone 4 !");
+      });
+
+      // ----------- EVENEMENT CONCERNANT LE CLICK -----------------------
+
+      // ----------- EVENEMENT MOUSEUP
+      // Lorsque nous allons pressez pendant quelques secondes le click gauche et le ralcher sur les elements ayant la classe "zone 5", nous changerons leur background en rouge.
+
+      $(".zone5").on("mouseup", function () {
+        $(this).css("background", "IndianRed");
+        $("#info").text("Je suis sur la zone 5 !");
+      });
+
+      // ----------- EVENEMENT MOUSEDOWN
+      // Lorsque allons enfoncez le click sur les elements ayant la classe zone6; nous changerons leur background en rouge.
+
+      $(".zone6").on("mousedown", function () {
+        $(this).css("background", "IndianRed");
+        $("#info").text("Je suis sur la zone 6 !");
+      });
+
+      // ----------- EVENEMENT ONCLICK
+      // Lorsque nous allons cliquer sur les elements ayant la classe zone7, nous changerons leur background en rouge.
+
+      $(".zone7").on("click", function () {
+        $(this).css("background", "IndianRed");
+        $("#info").text("Je suis sur la zone 7 !");
+      });
+
+      // ----------- EVENEMENT DBLCLICK
+      // Lorsque nous allons cliquer deux fois sur les elements ayant la classe zone 8, nous changerons leur background en rouge.
+
+      $(".zone8").on("dblclick", function () {
+        $(this).css("background", "IndianRed");
+        $("#info").text("Je suis sur la zone 8 !");
+      });
+
+      // ----------- EVENEMENT CLICK DROIT
+      // Lorsque nous allons cliquer droit sur les elements ayant la classe zone 9, nous changerons leur background en rouge.
+
+      $(".zone9").contextmenu(function () {
+        $(this).css("background", "IndianRed");
+        $("#info").text("Je suis sur la zone 9 !");
+      });
+
+      // ----------- EVENEMENT CONCERNANT LE CLAVIER
+
+      // ----------- EVENEMENT BLUR
+      // Lorsque nous allons cliquer ailleurs apres avoir cliquer sur cet element ayant la classe zone10, nous changerons leur background en rouge.
+
+      $(".zone10").on("blur", function () {
+        $(this).css("background", "IndianRed");
+        $("#info").text("Je suis sur la zone 10 !");
+      });
+
+      // ----------- EVENEMENT CHANGE
+      // Lorsque nous allons changer l'option de l'element select ayant la classe zone 11, nous changerons leur background en rouge.
+
+      $(".zone11").on("change", function () {
+        $(this).css("background", "IndianRed");
+        $("#info").text("Je suis sur la zone 11 !");
+      });
+
+      // ----------- EVENEMENT KEYDOWN
+      // Lorsque nous allons appuyer sur une touche de notre clavier sur l element ayany la classe zone 12, nous changerons leur background en rouge.
+
+      $(".zone12").on("keydown", function () {
+        $(this).css("background", "IndianRed");
+        $("#info").text("Je suis sur la zone 12 !");
+      });
+
+      // ----------- EVENEMENT KEYUP
+      // Lorsque nous allons relacher une touche de notre clavier  sur sur l element ayant la classe zone 12, nous changerons leur background en hotpink.
+
+      $(".zone12").on("keyup", function () {
+        $(this).css("background", "HotPink");
+        $("#info").text("Je suis sur la zone 12 !");
+      });
+    </script>
+  </body>
+</html>
